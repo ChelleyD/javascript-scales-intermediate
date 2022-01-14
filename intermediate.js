@@ -1,5 +1,6 @@
 const moment = require("moment");
 const axios = require("axios");
+const {validate} = require('uuid');
 
 /**
  * @param {array<number>} numbers - an array of numbers
@@ -32,7 +33,6 @@ function add_all_negative_values(numbers){
 async function predict_age_by_name(name){
     let age = 0;
     await axios.get(`https://api.agify.io?name=${name}`).then(function (response) {
-        
         // data = {...response.data, name: name, age: Math.floor((Math.random() * 100) + 1)};
         age = response.data.age;
     })
@@ -79,7 +79,9 @@ function days_between(date_one, date_two){
     const d_one = moment(date_one);
     const d_two = moment(date_two);
 
-    return Math.abs(d_one.diff(d_two, "days"));
+    let difference = (Math.abs(d_one.diff(d_two, "days"))).toString();
+    return `${difference} days`;
+    // return Math.abs(d_one.diff(d_two, "days"));
 }
 
 /**
@@ -88,8 +90,9 @@ function days_between(date_one, date_two){
  **/
 
 function validate_uuid(uuid){
-    const isValid = /^[0-9A-Za-z]{8}\-[0-9A-Za-z]{4}\-[0-9A-Za-z]{4}\-[0-9A-Za-z]{4}\-[0-9A-Za-z]{12}$/;
-    return isValid.test(uuid);
+    // const isValid = /^[0-9A-Za-z]{8}\-[0-9A-Za-z]{4}\-[0-9A-Za-z]{4}\-[0-9A-Za-z]{4}\-[0-9A-Za-z]{12}$/;
+    // return isValid.test(uuid);
+    return validate(uuid);
 }
 
 const commands = [
