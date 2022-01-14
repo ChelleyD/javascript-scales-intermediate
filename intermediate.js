@@ -57,15 +57,6 @@ async function list_songs_by(artist){
     return songsArr; // replace with yours
 }
 
-/**
- * ----------------
-   ----------------
-   DON'T CHANGE ANYTHING BELOW THIS LINE
-   ----------------
-   ----------------
- *
- **/
-
 // THIS IS A CHALLENGE
 
 /**
@@ -94,6 +85,15 @@ function validate_uuid(uuid){
     // return isValid.test(uuid);
     return validate(uuid);
 }
+
+/**
+ * ----------------
+   ----------------
+   DON'T CHANGE ANYTHING BELOW THIS LINE
+   ----------------
+   ----------------
+ *
+ **/
 
 const commands = [
     'days_between(new Date("June 14, 1989"), new Date("October 26, 2005"))',
